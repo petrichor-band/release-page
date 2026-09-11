@@ -49,8 +49,6 @@
       content_type: 'music',
       content_name: window.RELEASE_CONFIG?.title || document.title
     });
-
-    fbq('trackCustom', `StreamingClick_${platform}`, { platform });
   }
 
   document.addEventListener("DOMContentLoaded", () => {

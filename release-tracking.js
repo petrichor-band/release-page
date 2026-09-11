@@ -1,5 +1,5 @@
 const ANALYTICS_CONFIG = {
-    API_BASE: "http://localhost:5000",
+    TRACK_URL: "https://minondxdissssqrzhwuu.supabase.co/functions/v1/track",
 };
 
 
@@ -41,78 +41,69 @@ function getUtmParams() {
 }
 
 async function registerPageView() {
-
-    const sessionId = getSessionId();
-
     const payload = {
-        session_id: sessionId,
+        type: "session",
+        session_id: getSessionId(),
         ...getUtmParams()
     };
 
-    console.log("📤 Page view :", payload);
-
     try {
         const response = await fetch(
-            `${ANALYTICS_CONFIG.API_BASE}/api/session`,
+            ANALYTICS_CONFIG.TRACK_URL,
             {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(payload)
+                body: JSON.stringify(payload),
+                keepalive: true
             }
         );
 
-        console.log("📥 Session API :", response.status);
-
+        if (!response.ok) {
+            console.error(
+                "Analytics session error:",
+                response.status
+            );
+        }
     } catch (error) {
-        console.error("❌ Erreur session analytics :", error);
+        console.error("Analytics session failed:", error);
     }
 }
 
 
-async function registerClick(platform) {
+function registerClick(platform) {
     const payload = {
+        type: "click",
         session_id: getSessionId(),
-        platform: platform
+        platform
     };
 
-    console.log("📤 Streaming click :", payload);
-
-    try {
-        const response = await fetch(
-            `${ANALYTICS_CONFIG.API_BASE}/api/click`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(payload)
-            }
-        );
-
-        console.log("📥 Click API :", response.status);
-
-    } catch (error) {
-        console.error("❌ Erreur click analytics :", error);
-    }
+    fetch(
+        ANALYTICS_CONFIG.TRACK_URL,
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload),
+            keepalive: true
+        }
+    ).catch(error => {
+        console.error("Analytics click failed:", error);
+    });
 }
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("✅ release-tracking.js chargé");
 
     registerPageView();
 
     const buttons = document.querySelectorAll("[data-platform]");
 
-    console.log(`✅ ${buttons.length} boutons détectés`);
-
     buttons.forEach(button => {
         button.addEventListener("click", () => {
             const platform = button.dataset.platform;
-
-            console.log("🖱️ Clic plateforme :", platform);
 
             registerClick(platform);
         });

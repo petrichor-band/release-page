@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#0b0b0e">
+
+  <title>Petrichor - Stay</title>
+
+  <meta
+    name="description"
+    content="Listen to Stay by Petrichor on your favourite streaming platform."
+  >
+
+  <meta property="og:type" content="music.song">
+  <meta property="og:title" content="Petrichor - Stay">
+
+  <meta
+    property="og:description"
+    content="Available now. Choose your streaming platform."
+  >
+
+  <meta property="og:image" content="static/cover.jpg">
+
+  <link
+    rel="preconnect"
+    href="https://connect.facebook.net"
+    crossorigin
+  >
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script>
+    window.RELEASE_CONFIG = {
+      metaPixelId: "YOUR_META_PIXEL_ID",
+      artist: "Petrichor",
+      title: "Stay"
+    };
+  </script>
+
+  <script defer src="app.js"></script>
+</head>
+
+
+<body>
+
+  <div
+    class="ambient"
+    aria-hidden="true"
+    style="--cover: url('static/cover.jpg');"
+  ></div>
+
+
+  <main class="shell">
+
+    <section
+      class="release-card"
+      aria-labelledby="release-title"
+    >
+
+      <!-- COVER -->
+
+      <div class="cover-wrap">
+
+        <img
+          class="cover"
+          src="static/cover.jpg"
+          alt="Stay by Petrichor"
+          width="720"
+          height="720"
+          fetchpriority="high"
+        >
+
+      </div>
+
+
+      <!-- RELEASE INFO -->
+
+      <div class="release-copy">
+
+        <p class="eyebrow">
+          OUT NOW
+        </p>
+
+        <h1 id="release-title">
+          Stay
+        </h1>
+
+        <p class="artist">
+          Petrichor
+        </p>
+
+        <p class="microcopy">
+          Choose your streaming platform.
+        </p>
+
+      </div>
+
+
+      <!-- STREAMING PLATFORMS -->
+
+      <div
+        class="platforms"
+        role="list"
+        aria-label="Streaming platforms"
+      >
+
+
+        <!-- SPOTIFY -->
+
+        <a
+          class="platform-button"
+          data-platform="spotify"
+          href="https://open.spotify.com/intl-fr/album/27BLFvbNoE1GQMKIlgUCHw"
+          target="_blank"
+          rel="noopener noreferrer"
+          role="listitem"
+        >
+
+          <span class="platform-left">
+
+            <span class="platform-logo-box">
+
+              <img
+                src="static/spotify.png"
+                alt="Spotify"
+              >
+
+            </span>
+
+            <span class="platform-copy">
+
+              <span class="platform-kicker">
+                Stream on
+              </span>
+
+              <span class="platform-name">
+                Spotify
+              </span>
+
+            </span>
+
+          </span>
+
+          <span class="arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+
+        <!-- APPLE MUSIC -->
+
+        <a
+          class="platform-button"
+          data-platform="apple_music"
+          href="https://music.apple.com/us/album/stay-single/6800466768?uo=4"
+          target="_blank"
+          rel="noopener noreferrer"
+          role="listitem"
+        >
+
+          <span class="platform-left">
+
+            <span class="platform-logo-box">
+
+              <img
+                src="static/apple_music.png"
+                alt="Apple Music"
+              >
+
+            </span>
+
+            <span class="platform-copy">
+
+              <span class="platform-kicker">
+                Stream on
+              </span>
+
+              <span class="platform-name">
+                Apple Music
+              </span>
+
+            </span>
+
+          </span>
+
+          <span class="arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+
+        <!-- DEEZER -->
+
+        <a
+          class="platform-button"
+          data-platform="deezer"
+          href="https://www.deezer.com/album/1051767482"
+          target="_blank"
+          rel="noopener noreferrer"
+          role="listitem"
+        >
+
+          <span class="platform-left">
+
+            <span class="platform-logo-box">
+
+              <img
+                src="static/deezer.png"
+                alt="Deezer"
+              >
+
+            </span>
+
+            <span class="platform-copy">
+
+              <span class="platform-kicker">
+                Stream on
+              </span>
+
+              <span class="platform-name">
+                Deezer
+              </span>
+
+            </span>
+
+          </span>
+
+          <span class="arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+
+        <!-- YOUTUBE -->
+
+        <a
+          class="platform-button"
+          data-platform="youtube_music"
+          href="https://www.youtube.com/watch?is=7YAuZOoPyEXB97_v&v=sGieF0SnAXE&feature=youtu.be"
+          target="_blank"
+          rel="noopener noreferrer"
+          role="listitem"
+        >
+
+          <span class="platform-left">
+
+            <span class="platform-logo-box">
+
+              <img
+                src="static/youtube.png"
+                alt="YouTube"
+              >
+
+            </span>
+
+            <span class="platform-copy">
+
+              <span class="platform-kicker">
+                Stream on
+              </span>
+
+              <span class="platform-name">
+                YouTube
+              </span>
+
+            </span>
+
+          </span>
+
+          <span class="arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </div>
+
+
+      <!-- PRIVACY -->
+
+      <button
+        class="privacy-link"
+        type="button"
+        id="manageConsent"
+      >
+        Manage preferences
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <!-- COOKIE BANNER -->
+
+  <aside
+    class="cookie-banner"
+    id="cookieBanner"
+    hidden
+    aria-live="polite"
+  >
+
+    <div class="cookie-content">
+
+      <p class="cookie-title">
+        Audience Measurement
+      </p>
+
+      <p class="cookie-text">
+        With your consent, we use the Meta Pixel to measure the effectiveness of advertising campaigns.
+      </p>
+
+    </div>
+
+    <div class="cookie-actions">
+
+      <button
+        class="ghost-btn"
+        type="button"
+        id="rejectCookies"
+      >
+        Reject
+      </button>
+
+      <button
+        class="solid-btn"
+        type="button"
+        id="acceptCookies"
+      >
+        Accept
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <script src="release-tracking.js?v=2"></script>
+
+</body>
+
+</html>

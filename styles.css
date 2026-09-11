@@ -1,0 +1,822 @@
+:root {
+  --bg: #0b0b0e;
+
+  --panel: rgba(18, 18, 23, 0.76);
+  --panel-border: rgba(255, 255, 255, 0.10);
+
+  --text: #f7f7f8;
+  --muted: #aaaab3;
+
+  --button: rgba(255, 255, 255, 0.075);
+  --button-hover: rgba(255, 255, 255, 0.13);
+
+  --logo-background: rgba(255, 255, 255, 0.92);
+
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+
+  --radius-lg: 30px;
+  --radius-md: 18px;
+}
+
+
+/* =========================
+   BASE
+   ========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  min-height: 100%;
+  background: var(--bg);
+}
+
+
+body {
+  margin: 0;
+
+  min-height: 100svh;
+
+  color: var(--text);
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================
+   BACKGROUND
+   ========================= */
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  z-index: -3;
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(255, 255, 255, 0.08),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #111116 0%,
+      #08080b 100%
+    );
+}
+
+
+.ambient {
+  position: fixed;
+
+  inset: -10%;
+
+  z-index: -2;
+
+  background-image: var(--cover);
+  background-size: cover;
+  background-position: center;
+
+  filter:
+    blur(72px)
+    saturate(1.3);
+
+  opacity: 0.25;
+
+  transform: scale(1.12);
+}
+
+
+.ambient::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(5, 5, 8, 0.62);
+}
+
+
+/* =========================
+   PAGE
+   ========================= */
+
+.shell {
+  min-height: 100svh;
+
+  display: grid;
+
+  place-items: center;
+
+  padding:
+    28px
+    18px
+    120px;
+}
+
+
+/* =========================
+   RELEASE CARD
+   ========================= */
+
+.release-card {
+  width: min(100%, 520px);
+
+  padding: 20px;
+
+  border:
+    1px solid
+    var(--panel-border);
+
+  border-radius:
+    var(--radius-lg);
+
+  background:
+    var(--panel);
+
+  backdrop-filter:
+    blur(24px);
+
+  -webkit-backdrop-filter:
+    blur(24px);
+
+  box-shadow:
+    var(--shadow);
+}
+
+
+/* =========================
+   COVER
+   ========================= */
+
+.cover-wrap {
+  overflow: hidden;
+
+  aspect-ratio: 1;
+
+  border-radius: 22px;
+
+  background: #15151b;
+}
+
+
+.cover {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================
+   RELEASE INFORMATION
+   ========================= */
+
+.release-copy {
+  padding:
+    24px
+    6px
+    18px;
+
+  text-align: center;
+}
+
+
+.eyebrow {
+  margin:
+    0
+    0
+    8px;
+
+  color: #d8d8de;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+}
+
+
+h1 {
+  margin: 0;
+
+  font-size:
+    clamp(
+      30px,
+      8vw,
+      48px
+    );
+
+  line-height: 0.98;
+
+  letter-spacing: -0.045em;
+}
+
+
+.artist {
+  margin:
+    10px
+    0
+    0;
+
+  color: #d4d4da;
+
+  font-size: 17px;
+  font-weight: 650;
+}
+
+
+.microcopy {
+  margin:
+    14px
+    0
+    0;
+
+  color:
+    var(--muted);
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   PLATFORM LIST
+   ========================= */
+
+.platforms {
+  display: grid;
+
+  gap: 10px;
+}
+
+
+/* =========================
+   PLATFORM BUTTON
+   ========================= */
+
+.platform-button {
+  min-height: 76px;
+
+  padding:
+    8px
+    16px
+    8px
+    8px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  gap: 16px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  border-radius:
+    var(--radius-md);
+
+  background:
+    var(--button);
+
+  color:
+    var(--text);
+
+  text-decoration:
+    none;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+  transition:
+    transform 0.16s ease,
+    background 0.16s ease,
+    border-color 0.16s ease;
+}
+
+
+.platform-button:hover {
+  background:
+    var(--button-hover);
+
+  border-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.16
+    );
+
+  transform:
+    translateY(-1px);
+}
+
+
+.platform-button:active {
+  transform:
+    scale(0.985);
+}
+
+
+/* =========================
+   PLATFORM LEFT SIDE
+   ========================= */
+
+.platform-left {
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+
+/* =========================
+   LOGO BOX
+   ========================= */
+
+.platform-logo-box {
+  width: 120px;
+  height: 56px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    8px
+    10px;
+
+  border-radius: 12px;
+
+  background:
+    var(--logo-background);
+}
+
+
+.platform-logo-box img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+/* =========================
+   PLATFORM TEXT
+   ========================= */
+
+.platform-copy {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 2px;
+}
+
+
+.platform-kicker {
+  color:
+    var(--muted);
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  line-height: 1.2;
+}
+
+
+.platform-name {
+  color:
+    var(--text);
+
+  font-size: 15px;
+
+  font-weight: 750;
+
+  line-height: 1.25;
+
+  white-space: nowrap;
+}
+
+
+/* =========================
+   ARROW
+   ========================= */
+
+.arrow {
+  flex-shrink: 0;
+
+  color: #c7c7ce;
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+
+/* =========================
+   PRIVACY
+   ========================= */
+
+.privacy-link {
+  width: 100%;
+
+  margin-top: 14px;
+
+  padding:
+    7px
+    8px
+    2px;
+
+  border: 0;
+
+  background:
+    transparent;
+
+  color: #777782;
+
+  font-size: 11px;
+
+  text-decoration:
+    underline;
+
+  text-underline-offset:
+    3px;
+
+  cursor: pointer;
+}
+
+
+.privacy-link:hover {
+  color: #aaaab3;
+}
+
+
+/* =========================
+   COOKIE BANNER
+   ========================= */
+
+.cookie-banner {
+  position: fixed;
+
+  z-index: 20;
+
+  left: 50%;
+
+  bottom:
+    max(
+      18px,
+      env(safe-area-inset-bottom)
+    );
+
+  transform:
+    translateX(-50%);
+
+  width:
+    min(
+      calc(100% - 28px),
+      650px
+    );
+
+  padding: 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  gap: 14px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.12
+    );
+
+  border-radius: 20px;
+
+  background:
+    rgba(
+      18,
+      18,
+      23,
+      0.96
+    );
+
+  box-shadow:
+    0
+    24px
+    70px
+    rgba(
+      0,
+      0,
+      0,
+      0.42
+    );
+
+  backdrop-filter:
+    blur(20px);
+
+  -webkit-backdrop-filter:
+    blur(20px);
+}
+
+
+.cookie-banner[hidden] {
+  display: none;
+}
+
+
+.cookie-content {
+  min-width: 0;
+}
+
+
+.cookie-title {
+  margin:
+    0
+    0
+    4px;
+
+  font-size: 14px;
+
+  font-weight: 800;
+}
+
+
+.cookie-text {
+  margin: 0;
+
+  color:
+    var(--muted);
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================
+   COOKIE BUTTONS
+   ========================= */
+
+.cookie-actions {
+  display: flex;
+
+  flex-shrink: 0;
+
+  gap: 8px;
+}
+
+
+button {
+  appearance: none;
+
+  border: 0;
+
+  font: inherit;
+
+  cursor: pointer;
+}
+
+
+.ghost-btn,
+.solid-btn {
+  min-height: 42px;
+
+  padding:
+    0
+    14px;
+
+  border-radius: 12px;
+
+  font-size: 13px;
+
+  font-weight: 800;
+}
+
+
+.ghost-btn {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.07
+    );
+
+  color: #dddde3;
+}
+
+
+.solid-btn {
+  background: #fff;
+
+  color: #09090c;
+}
+
+
+/* =========================
+   NOSCRIPT
+   ========================= */
+
+.noscript {
+  position: fixed;
+
+  inset-inline: 12px;
+
+  bottom: 12px;
+
+  padding: 12px;
+
+  text-align: center;
+
+  background: #fff;
+
+  color: #111;
+
+  border-radius: 12px;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 540px) {
+
+  .shell {
+    place-items:
+      start center;
+
+    padding:
+      14px
+      12px
+      100px;
+  }
+
+
+  .release-card {
+    padding: 13px;
+
+    border-radius: 24px;
+  }
+
+
+  .cover-wrap {
+    border-radius: 17px;
+  }
+
+
+  .release-copy {
+    padding:
+      22px
+      6px
+      16px;
+  }
+
+
+  .platform-button {
+    min-height: 70px;
+
+    padding:
+      7px
+      14px
+      7px
+      7px;
+
+    gap: 10px;
+  }
+
+
+  .platform-left {
+    gap: 11px;
+  }
+
+
+  .platform-logo-box {
+    width: 105px;
+    height: 52px;
+
+    padding:
+      8px
+      9px;
+  }
+
+
+  .platform-kicker {
+    font-size: 10px;
+  }
+
+
+  .platform-name {
+    font-size: 14px;
+  }
+
+
+  .arrow {
+    font-size: 18px;
+  }
+
+
+  .cookie-banner {
+    align-items:
+      stretch;
+
+    flex-direction:
+      column;
+  }
+
+
+  .cookie-actions > * {
+    flex: 1;
+  }
+
+}
+
+
+/* =========================
+   VERY SMALL SCREENS
+   ========================= */
+
+@media (max-width: 370px) {
+
+  .platform-logo-box {
+    width: 90px;
+  }
+
+
+  .platform-left {
+    gap: 9px;
+  }
+
+
+  .platform-name {
+    font-size: 13px;
+  }
+
+}
+
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  * {
+    scroll-behavior:
+      auto !important;
+
+    transition:
+      none !important;
+  }
+
+}

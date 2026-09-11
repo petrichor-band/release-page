@@ -76,7 +76,8 @@ function registerClick(platform) {
     const payload = {
         type: "click",
         session_id: getSessionId(),
-        platform
+        platform,
+        ...getUtmParams()
     };
 
     fetch(
